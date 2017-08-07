@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gulang.surd.dao.UserDao">
+  	<!-- 设置数据库与实体类对应-->
+	<resultMap id="BaseResultMap" type="com.gulang.surd.entity.UserDO">
+        <result column="user_id" property="userId" jdbcType="CHAR"/>
+        <result column="mobile" property="mobile" jdbcType="CHAR"/>
+        <result column="user_name" property="userName" jdbcType="CHAR"/>
+        <result column="email" property="email" jdbcType="CHAR"/>
+        <result column="app_domain" property="appDomain" jdbcType="VARCHAR"/>
+        <result column="create_date" property="createDate" jdbcType="TIMESTAMP"/>
+        <result column="mod_date" property="modDate" jdbcType="TIMESTAMP"/>
+        <result column="is_del" property="isDel" jdbcType="TINYINT"/>
+        <result column="status" property="status" jdbcType="TINYINT"/>
+        <result column="row_version" property="rowVersion" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="joinTables">
+    </sql>
+
+
+    <sql id="fullColumn">
+         user_id,mobile,user_name,email,app_domain,create_date,mod_date,is_del,status,row_version
+    </sql>
+
+    <sql id="whereCase">
+        <where>
+            <if test="userId != null"> AND user_id=#{userId}</if>
+        </where>
+    </sql>
+
+    <sql id="smallWhereCase">
+        <where>
+            <if test="userId != null">AND user_id=#{userId}</if>
+            <if test="mobile != null">AND mobile=#{mobile}</if>
+            <if test="userName != null">AND user_name=#{userName}</if>
+            <if test="email != null">AND email=#{email}</if>
+        </where>
+    </sql>
+
+
+    
+    <!-- 获取一条记录-->
+    <select id="getEntity" resultMap="BaseResultMap">
+        SELECT  <include refid="fullColumn"/>  FROM user_info
+        <include refid="joinTables"/>
+        <include refid="smallWhereCase"/>
+    </select>
+
+
+
+</mapper>
