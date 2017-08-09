@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author: gulang
+ * @author : gulang
  * Create Date : 2017/7/25
  * Company     : Garden Plus
  * Description :

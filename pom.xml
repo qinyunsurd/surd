@@ -88,6 +88,12 @@
       <artifactId>spring-jdbc</artifactId>
       <version>4.3.8.RELEASE</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.5</version>
+    </dependency>
     <!--数据库依赖 -->
     <dependency>
       <groupId>mysql</groupId>
